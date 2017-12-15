@@ -1,28 +1,37 @@
 ﻿using System;
 
 namespace SnapchatBot {
-    public enum Prefix { STARTUP, CONFIG }
-    
+    public enum Prefix {
+        STARTUP,
+        CONFIG
+    }
+
+    public enum Type {
+        INT,
+        STRING
+    }
+
     public class Config {
-        
         #region Path
 
         public static string GetGeneralPath() {
             return "C:\\snapchatmanager\\";
         }
-        
+
         public static ConfigManagerAPI ConfigManagerApi;
 
         public static string GetSavedSnapsPath() {
             return GetGeneralPath() + "saved_snaps\\";
         }
+
         #endregion
 
         #region Chat Positions & Length
+
         public static int GetChatsCount() {
             return ConfigManagerApi.GetInt("chats_count");
         }
-        
+
         public static int GetChatDotLeftEdgeDistance() {
             return ConfigManagerApi.GetInt("chat_dot_left_edge_distance");
         }
@@ -30,21 +39,23 @@ namespace SnapchatBot {
         public static int GetChatDotTopEdgeDistance(int slot) {
             return ConfigManagerApi.GetInt("chats_positionY." + slot);
         }
-        
+
         public static int GetIsStillInSnapLeftEdgeDistance() {
             return ConfigManagerApi.GetInt("is_in_snap_left_edge_distance");
         }
-        
+
         public static int GetIsStillInSnapTopEdgeDistance() {
             return ConfigManagerApi.GetInt("is_in_snap_top_edge_distance");
         }
+
         #endregion
 
         #region Color
+
         public static string GetUnreadPictureSnapColor() {
             return ConfigManagerApi.GetString("color_unread_chat");
         }
-        
+
         public static string GetUnreadVideoSnapColor() {
             return ConfigManagerApi.GetString("color_unread_video");
         }
@@ -52,27 +63,31 @@ namespace SnapchatBot {
         public static string GetReadSnapColor() {
             return ConfigManagerApi.GetString("color_read");
         }
+
         #endregion
 
         #region Picture
+
         public static int GetPictureHeight() {
             return ConfigManagerApi.GetInt("picture_height");
         }
-        
+
         public static int GetPictureWidth() {
             return ConfigManagerApi.GetInt("picture_width");
         }
-        
+
         public static int GetPictureTopEdgeDistance() {
             return ConfigManagerApi.GetInt("picture_top_edge_distance");
         }
-        
+
         public static int GetPictureLeftEdgeDistance() {
             return ConfigManagerApi.GetInt("picture_left_edge_distance");
         }
+
         #endregion
-        
+
         #region Swipe
+
         /* Useless because not used
         public static int GetRefreshLeftEdgeDistance() {
             return ConfigManagerApi.GetInt("refresh_start_left_edge_distance");
@@ -105,19 +120,23 @@ namespace SnapchatBot {
         public static int GetSleepTime() {
             return ConfigManagerApi.GetInt("move_sleepTime");
         }*/
+
         #endregion
 
         #region Back to messages screen
+
         public static int GetBackToMessagesBoardScreenLeftEdgeDistance() {
             return ConfigManagerApi.GetInt("backToMessagesScreen_left_edge_distance");
         }
-        
+
         public static int GetBackToMessagesBoardScreenTopEdgeDistance() {
             return ConfigManagerApi.GetInt("backToMessagesScreen_top_edge_distance");
         }
+
         #endregion
-        
+
         #region set Parameters
+
         public static void SetStandartValues() {
             Config.ConfigManagerApi.Set("chat_dot_left_edge_distance", 44);
 
@@ -155,42 +174,24 @@ namespace SnapchatBot {
             Config.ConfigManagerApi.Set("swipeleft_start_left_edge_distance", 30);
             Config.ConfigManagerApi.Set("swipeleft_start_top_edge_distance", 300);
             Config.ConfigManagerApi.Set("swipeleft_distance_to_end", 380);*/
-            
+
             Config.ConfigManagerApi.Set("backToMessagesScreen_left_edge_distance", 50);
             Config.ConfigManagerApi.Set("backToMessagesScreen_top_edge_distance", 690);
         }
 
         public static void SetParameters() {
             Console.Clear();
-            
+
             #region Snaps opening positions
-            int chat_dot_left_edge_distance;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter the distance from your left edge of the screen to the " +
-                                               "chat dot in Snapchat as integer: ");
-                try {
-                    chat_dot_left_edge_distance = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("chat_dot_left_edge_distance", chat_dot_left_edge_distance);
 
-            int chats_count;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter how many chat dots you have on your screen as integer: ");
-                try {
-                    chats_count = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("chats_count", chats_count);
+            SetParameter("Enter the distance from your left edge of the screen to the chat dots in Snapchat as integer",
+                Type.INT, "chat_dot_left_edge_distance");
+            
+            SetParameter("Enter how many chat dots you have on your screen as integer",
+                Type.INT, "chats_count");
 
+            int chats_count = ConfigManagerApi.GetInt("chats_count");
+            
             for (int i = 0; i < chats_count; i++) {
                 int chats_positionY;
                 while (true) {
@@ -206,138 +207,52 @@ namespace SnapchatBot {
                 }
                 Config.ConfigManagerApi.Set("chats_positionY." + i, chats_positionY);
             }
+
             #endregion
-            
+
             #region Is in snap positions
-            int is_in_snap_left_edge_distance;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter the distance to your left edge on your " +
-                              "screen where the bot should check for the white snapchat background color as integer: ");
-                try {
-                    is_in_snap_left_edge_distance = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("is_in_snap_left_edge_distance", is_in_snap_left_edge_distance);
             
-            int is_in_snap_top_edge_distance;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter the distance to your top edge on your " +
-                              "screen where the bot should check for the white snapchat background color as integer: ");
-                try {
-                    is_in_snap_top_edge_distance = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("is_in_snap_top_edge_distance", is_in_snap_top_edge_distance);
+            SetParameter("Enter the distance to your left edge on your screen where the bot should check for for the " +
+                         "white snapchat background color as integer", Type.INT, "is_in_snap_left_edge_distance");
+
+            SetParameter("Enter the distance from your top edge of the screen where the bot should check for the white " +
+                         "snapchat background color as integer", Type.INT, "is_in_snap_top_edge_distance");
+
             #endregion positions
-            
+
             #region Picture positions
-            int picture_width;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter your picture width as integer: ");
-                try {
-                    picture_width = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("picture_width", picture_width);
+
+            SetParameter("Enter the width of the open snap as integer", Type.INT, "picture_width");
             
-            int picture_height;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter your picture height as integer: ");
-                try {
-                    picture_height = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("picture_height", picture_height);
+            SetParameter("Enter the height of the open snap as integer", Type.INT, "picture_height");
+
+            SetParameter("Enter the distance from your left edge of the screen where the picture starts as integer", 
+                Type.INT, "picture_left_edge_distance");
+
+            SetParameter("Enter the distance from your top edge of the screen where the picture starts as integer", 
+                Type.INT, "picture_top_edge_distance");          
+
+            #endregion
+
+            #region Dot colors
+
+            SetParameter("Enter the color of unread snaps as string (DEFAULT: fff23c57)", 
+                Type.STRING, "color_unread_chat");  
             
-            int picture_left_edge_distance;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter your distance to the left edge of your screen where " +
-                              "the picture starts as integer: ");
-                try {
-                    picture_left_edge_distance = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("picture_left_edge_distance", picture_left_edge_distance);
+            SetParameter("Enter the color of read snaps as string (DEFAULT: ffffffff)", 
+                Type.STRING, "color_read");
+
+            SetParameter("Enter the color of unread video snaps as string (DEFAULT: ffa05dcd)", 
+                Type.STRING, "color_unread_video");
             
-            int picture_top_edge_distance;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter your distance to the top edge of your screen where " +
-                              "the picture starts as integer: ");
-                try {
-                    picture_top_edge_distance = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("picture_top_edge_distance", picture_top_edge_distance);
+
             #endregion
             
-            #region Dot colors
-            string color_unread_chat;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter the color from unread snaps as string (DEFAULT: fff23c57): ");
-                try {
-                    color_unread_chat = Console.ReadLine();
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("color_unread_chat", color_unread_chat);
-            
-            string color_read;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter the color from read snaps as string (DEFAULT: ffffffff): ");
-                try {
-                    color_read = Console.ReadLine();
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("color_read", color_read);
-            
-            string color_unread_video;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter the color from unread video snaps as string (DEFAULT: ffa05dcd): ");
-                try {
-                    color_unread_video = Console.ReadLine();
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("color_unread_video", color_unread_video);
-            
+            /* Useless because not used
             int refresh_start_left_edge_distance;
             while (true) {
                 Utilities.Write(Prefix.CONFIG, "Please enter the distance from the left edge of your screen " +
-                              "where the refresh swipe should start as integer: ");
+                                               "where the refresh swipe should start as integer: ");
                 try {
                     refresh_start_left_edge_distance = Convert.ToInt32(Console.ReadLine());
                     break;
@@ -347,9 +262,7 @@ namespace SnapchatBot {
                 }
             }
             Config.ConfigManagerApi.Set("refresh_start_left_edge_distance", refresh_start_left_edge_distance);
-            #endregion
             
-            /* Use less because not used
             int refresh_start_top_edge_distance;
             while (true) {
                 Utilities.Write(Prefix.CONFIG, "Please enter the distance from the top edge of your screen " +
@@ -422,41 +335,50 @@ namespace SnapchatBot {
             Config.ConfigManagerApi.Set("refresh_speed", 20);
             Config.ConfigManagerApi.Set("refresh_sleepTime", 20);
             */
-            
+
             #region Back to messages screen
-            int backToMessagesScreen_left_edge_distance;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter your distance to the left edge of your screen where " +
-                                               "the message tab button is located as integer: ");
-                try {
-                    backToMessagesScreen_left_edge_distance = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("backToMessagesScreen_left_edge_distance", backToMessagesScreen_left_edge_distance);
+
+            SetParameter("Enter the distance to the left edge of your screen where the message tab button is located as integer", 
+                Type.INT, "backToMessagesScreen_left_edge_distance");  
             
-            int backToMessagesScreen_top_edge_distance;
-            while (true) {
-                Utilities.Write(Prefix.CONFIG, "Please enter your distance to the top edge of your screen where " +
-                                               "the message tab button is located as integer: ");
-                try {
-                    backToMessagesScreen_top_edge_distance = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception) {
-                    Utilities.WriteLine(Prefix.CONFIG, "Wrong input, please enter it again!");
-                }
-            }
-            Config.ConfigManagerApi.Set("backToMessagesScreen_top_edge_distance", backToMessagesScreen_top_edge_distance);
+            SetParameter("Enter the distance to the top edge of your screen where the message tab button is located as integer", 
+                Type.INT, "backToMessagesScreen_top_edge_distance");  
+
             #endregion
-            
+
             Utilities.WriteLine(Prefix.CONFIG, "Thank you for finishing the setup!");
             Utilities.WriteLine(Prefix.CONFIG, "You will find the config file in C:/snapchatmanager");
             Utilities.WriteLine(Prefix.CONFIG, "Press any key to continue...");
         }
+        
+        private static void SetParameter(string question, Type type, string databasevalue) {
+            object value;
+            while (true) {
+                Utilities.Write(Prefix.CONFIG, question + ": ");
+
+                try {
+                    if (type == Type.INT) {
+                        (int) value = Convert.ToInt32(Console.ReadLine());
+                        break;
+                    } else {
+                        (string) value = Console.ReadLine();
+                        break;
+                    }
+                }
+                catch (Exception) {
+                    Utilities.Write(Prefix.CONFIG, "ERROR! The needed value is a ");
+                    if (type == Type.INT) {
+                        Console.Write("number: ");
+                    }
+                    else {
+                        Console.Write("string: ");
+                    }
+                }
+            }
+            Config.ConfigManagerApi.Set(databasevalue, ((string) value));
+            Utilities.Write(Prefix.CONFIG, "Successful written " + databasevalue + "!");
+        }
+
         #endregion
     }
 }
