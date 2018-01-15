@@ -352,16 +352,18 @@ namespace SnapchatBot {
         }
         
         private static void SetParameter(string question, Type type, string databasevalue) {
-            object value;
+            object value = null;
             while (true) {
                 Utilities.Write(Prefix.CONFIG, question + ": ");
 
                 try {
                     if (type == Type.INT) {
-                        (int) value = Convert.ToInt32(Console.ReadLine());
+                        var int32 = (int) value;
+                        value = Convert.ToInt32(Console.ReadLine());
                         break;
                     } else {
-                        (string) value = Console.ReadLine();
+                        var readLine = (string) value;
+                        value = Console.ReadLine();
                         break;
                     }
                 }
