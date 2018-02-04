@@ -2,3 +2,9 @@
 SnapchatBot/\.idea/\.idea\.SnapchatBot/\.idea/
 
 SnapchatBot/\.idea/\.idea\.SnapchatBot/
+
+*.Cache
+
+ContentFilter/ContentFilter/obj/Debug/
+
+ContentFilter/\.vs/ContentFilter/v15/
