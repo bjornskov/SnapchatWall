@@ -39,7 +39,8 @@
             // button_accept
             // 
             this.button_accept.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_accept.Location = new System.Drawing.Point(1083, 12);
+            this.button_accept.Location = new System.Drawing.Point(1083, 9);
+            this.button_accept.Margin = new System.Windows.Forms.Padding(0);
             this.button_accept.Name = "button_accept";
             this.button_accept.Size = new System.Drawing.Size(300, 300);
             this.button_accept.TabIndex = 0;
@@ -60,7 +61,7 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(268, 12);
+            this.pictureBox.Location = new System.Drawing.Point(349, 12);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(390, 650);
             this.pictureBox.TabIndex = 2;
