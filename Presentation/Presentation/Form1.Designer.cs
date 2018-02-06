@@ -35,6 +35,7 @@ namespace Presentation
             this.exit = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.label_snapchataccount_name = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,11 +56,22 @@ namespace Presentation
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(466, 12);
+            this.pictureBox.Location = new System.Drawing.Point(765, 215);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(390, 650);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
+            // 
+            // label_snapchataccount_name
+            // 
+            this.label_snapchataccount_name.AutoSize = true;
+            this.label_snapchataccount_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_snapchataccount_name.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label_snapchataccount_name.Location = new System.Drawing.Point(1297, 650);
+            this.label_snapchataccount_name.Name = "label_snapchataccount_name";
+            this.label_snapchataccount_name.Size = new System.Drawing.Size(272, 46);
+            this.label_snapchataccount_name.TabIndex = 2;
+            this.label_snapchataccount_name.Text = "@htlkremsball";
             // 
             // Presentation
             // 
@@ -67,7 +79,8 @@ namespace Presentation
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.CancelButton = this.exit;
-            this.ClientSize = new System.Drawing.Size(1436, 574);
+            this.ClientSize = new System.Drawing.Size(1904, 958);
+            this.Controls.Add(this.label_snapchataccount_name);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.exit);
             this.KeyPreview = true;
@@ -75,6 +88,7 @@ namespace Presentation
             this.Text = "Presentation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -83,6 +97,7 @@ namespace Presentation
         private System.Windows.Forms.Button exit;
         private PictureBox pictureBox;
         private Timer timer;
+        private Label label_snapchataccount_name;
     }
 }
 

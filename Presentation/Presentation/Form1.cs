@@ -11,32 +11,34 @@ namespace Presentation
         static string notSeenfilteredSnaps = @"C:\Presentation\notSeen\";
         static string alreadySeenfilteredSnaps = @"C:\Presentation\alreadySeen\";
 
+        static bool debugMode = false;
+
         public Presentation()
         {
             InitializeComponent();
 
-            //this.TopMost = true;
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
+            if (!debugMode)
+            {
+                this.TopMost = true;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
 
             InitializeTimer();
         }
 
         private void InitializeTimer()
         {
-            // Call this procedure when the application starts.  
-            // Set to 1 second.  
             timer.Interval = 5000;
             timer.Tick += new EventHandler(Timer_Tick);
-
-            // Enable timer.  
+            
             timer.Enabled = true;
         }
 
         private void Timer_Tick(object Sender, EventArgs e)
         {
-            DirectoryInfo d = new DirectoryInfo(Presentation.notSeenfilteredSnaps);//Assuming Test is your Folder
-            FileInfo[] Files = d.GetFiles("*.png"); //Getting Text files
+            DirectoryInfo d = new DirectoryInfo(Presentation.notSeenfilteredSnaps);
+            FileInfo[] Files = d.GetFiles("*.png");
             foreach (FileInfo file in Files)
             {
                 string currentPicture_l = Presentation.notSeenfilteredSnaps + file.Name;
@@ -51,8 +53,8 @@ namespace Presentation
                 return;
             }
 
-            d = new DirectoryInfo(Presentation.alreadySeenfilteredSnaps);//Assuming Test is your Folder
-            Files = d.GetFiles("*.png"); //Getting Text files
+            d = new DirectoryInfo(Presentation.alreadySeenfilteredSnaps);
+            Files = d.GetFiles("*.png");
             List<FileInfo> fileInfos = new List<FileInfo>();
             foreach (FileInfo file in Files)
             {
