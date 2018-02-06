@@ -1,4 +1,6 @@
-﻿namespace ContentFilter
+﻿using System.Drawing;
+
+namespace ContentFilter
 {
     partial class Form1
     {
@@ -38,30 +40,32 @@
             // 
             // button_accept
             // 
+            this.button_accept.BackColor = System.Drawing.Color.Green;
             this.button_accept.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_accept.Location = new System.Drawing.Point(1083, 9);
+            this.button_accept.Location = new System.Drawing.Point(405, 12);
             this.button_accept.Margin = new System.Windows.Forms.Padding(0);
             this.button_accept.Name = "button_accept";
             this.button_accept.Size = new System.Drawing.Size(300, 300);
             this.button_accept.TabIndex = 0;
             this.button_accept.Text = "ANNEHMEN";
-            this.button_accept.UseVisualStyleBackColor = true;
+            this.button_accept.UseVisualStyleBackColor = false;
             this.button_accept.Click += new System.EventHandler(this.button_accept_Click);
             // 
             // button_decline
             // 
+            this.button_decline.BackColor = Color.Red;
             this.button_decline.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_decline.Location = new System.Drawing.Point(1083, 373);
+            this.button_decline.Location = new System.Drawing.Point(405, 362);
             this.button_decline.Name = "button_decline";
             this.button_decline.Size = new System.Drawing.Size(300, 300);
             this.button_decline.TabIndex = 1;
             this.button_decline.Text = "ABLEHNEN";
-            this.button_decline.UseVisualStyleBackColor = true;
+            this.button_decline.UseVisualStyleBackColor = false;
             this.button_decline.Click += new System.EventHandler(this.button_decline_Click);
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(349, 12);
+            this.pictureBox.Location = new System.Drawing.Point(12, 12);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(390, 650);
             this.pictureBox.TabIndex = 2;
@@ -71,10 +75,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1395, 685);
+            this.ClientSize = new System.Drawing.Size(714, 671);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.button_decline);
             this.Controls.Add(this.button_accept);
+            this.MaximumSize = new System.Drawing.Size(730, 710);
+            this.MinimumSize = new System.Drawing.Size(730, 710);
             this.Name = "Form1";
             this.Text = "ContentFilter";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
