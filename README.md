@@ -21,7 +21,6 @@ checks them and then displays the images on a screen or canvas.
 
 ### 1.4) ToDo
 - [X] [SnapchatBot](https://github.com/Dafnik/SnapchatWall/tree/master/SnapchatBot)
-- [ ] ContentFilter
-- [ ] SnapDisplay
-- [ ] [myWeb](https://github.com/Dafnik/myWeb) link to this website
-- [ ] Website for showing all saved snaps
+- [X] ContentFilter
+- [X] SnapDisplay
+- [X] [myWeb](https://github.com/Dafnik/myWeb) link to this website
