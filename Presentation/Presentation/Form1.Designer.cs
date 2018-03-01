@@ -32,11 +32,13 @@ namespace Presentation
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Presentation));
             this.exit = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.label_snapchataccount_name = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // exit
@@ -62,16 +64,15 @@ namespace Presentation
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             // 
-            // label_snapchataccount_name
+            // pictureBox1
             // 
-            this.label_snapchataccount_name.AutoSize = true;
-            this.label_snapchataccount_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_snapchataccount_name.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label_snapchataccount_name.Location = new System.Drawing.Point(1297, 650);
-            this.label_snapchataccount_name.Name = "label_snapchataccount_name";
-            this.label_snapchataccount_name.Size = new System.Drawing.Size(272, 46);
-            this.label_snapchataccount_name.TabIndex = 2;
-            this.label_snapchataccount_name.Text = "@htlkremsball";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(117, 78);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(705, 397);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // Presentation
             // 
@@ -80,15 +81,15 @@ namespace Presentation
             this.BackColor = System.Drawing.Color.Black;
             this.CancelButton = this.exit;
             this.ClientSize = new System.Drawing.Size(1904, 958);
-            this.Controls.Add(this.label_snapchataccount_name);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.exit);
             this.KeyPreview = true;
             this.Name = "Presentation";
             this.Text = "Presentation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -97,7 +98,7 @@ namespace Presentation
         private System.Windows.Forms.Button exit;
         private PictureBox pictureBox;
         private Timer timer;
-        private Label label_snapchataccount_name;
+        private PictureBox pictureBox1;
     }
 }
 

@@ -53,7 +53,7 @@ namespace ContentFilter
             // 
             // button_decline
             // 
-            this.button_decline.BackColor = Color.Red;
+            this.button_decline.BackColor = System.Drawing.Color.Red;
             this.button_decline.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_decline.Location = new System.Drawing.Point(405, 362);
             this.button_decline.Name = "button_decline";
@@ -79,12 +79,14 @@ namespace ContentFilter
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.button_decline);
             this.Controls.Add(this.button_accept);
+            this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(730, 710);
             this.MinimumSize = new System.Drawing.Size(730, 710);
             this.Name = "Form1";
             this.Text = "ContentFilter";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.KeyDown += control_KeyDown;
 
         }
 

@@ -21,6 +21,11 @@ namespace ContentFilter
 
         private void button_decline_Click(object sender, EventArgs e)
         {
+            decline();
+        }
+
+        private void decline()
+        {
             if (currentPicture != null)
             {
                 timer.Stop();
@@ -37,8 +42,13 @@ namespace ContentFilter
 
         private void button_accept_Click(object sender, EventArgs e)
         {
+            accept();
+        }
+
+        private void accept()
+        {
             if (currentPicture != null)
-            {   
+            {
                 timer.Stop();
                 pictureBox.Image.Dispose();
                 pictureBox.Image = null;
@@ -47,7 +57,7 @@ namespace ContentFilter
                 string destFile = System.IO.Path.Combine(Form1.filteredAcceptedSnaps, ((DateTimeOffset)foo).ToUnixTimeSeconds() + ".png");
                 File.Copy(currentPicture, destFile, true);
                 File.Delete(currentPicture);
-               timer.Start();
+                timer.Start();
             }
         }
 
@@ -81,6 +91,28 @@ namespace ContentFilter
             {
                 Bitmap bm = new Bitmap(im);
                 return bm;
+            }
+        }
+
+        private void control_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyData)
+            {
+                case Keys.J:
+                    {
+                        accept();
+                        break;
+                    }
+                case Keys.N:
+                    {
+                        decline();
+                        break;
+                    }
+              
+                default:
+                    {
+                        break;
+                    }
             }
         }
     }
