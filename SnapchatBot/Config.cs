@@ -48,6 +48,36 @@ namespace SnapchatBot {
             return ConfigManagerApi.GetInt("is_in_snap_top_edge_distance");
         }
 
+        public static int GetIsStillInSnap1LeftEdgeDistance()
+        {
+            return ConfigManagerApi.GetInt("is_in_snap_1_left_edge_distance");
+        }
+
+        public static int GetIsStillInSnap1TopEdgeDistance()
+        {
+            return ConfigManagerApi.GetInt("is_in_snap_1_top_edge_distance");
+        }
+
+        public static string GetIsStillInSnap1Color()
+        {
+            return ConfigManagerApi.GetString("is_in_snap_1_color");
+        }
+
+        public static int GetIsStillInSnap2LeftEdgeDistance()
+        {
+            return ConfigManagerApi.GetInt("is_in_snap_2_left_edge_distance");
+        }
+
+        public static int GetIsStillInSnap2TopEdgeDistance()
+        {
+            return ConfigManagerApi.GetInt("is_in_snap_2_top_edge_distance");
+        }
+
+        public static string GetIsStillInSnap2Color()
+        {
+            return ConfigManagerApi.GetString("is_in_snap_2_color");
+        }
+
         #endregion
 
         #region Color
@@ -152,8 +182,16 @@ namespace SnapchatBot {
             Config.ConfigManagerApi.Set("chats_positionY.8", 534);
             Config.ConfigManagerApi.Set("chats_positionY.9", 586);
 
-            Config.ConfigManagerApi.Set("is_in_snap_left_edge_distance", 200);
-            Config.ConfigManagerApi.Set("is_in_snap_top_edge_distance", 650);
+            Config.ConfigManagerApi.Set("is_in_snap_left_edge_distance", 377);
+            Config.ConfigManagerApi.Set("is_in_snap_top_edge_distance", 115);
+
+            Config.ConfigManagerApi.Set("is_in_snap_1_left_edge_distance", 216);
+            Config.ConfigManagerApi.Set("is_in_snap_1_top_edge_distance", 71);
+            Config.ConfigManagerApi.Set("is_in_snap_1_color", "ff0eadff");
+
+            Config.ConfigManagerApi.Set("is_in_snap_2_left_edge_distance", 115);
+            Config.ConfigManagerApi.Set("is_in_snap_2_top_edge_distance", 699);
+            Config.ConfigManagerApi.Set("is_in_snap_2_color", "ffced4da");
 
             Config.ConfigManagerApi.Set("picture_width", 390);
             Config.ConfigManagerApi.Set("picture_height", 650);

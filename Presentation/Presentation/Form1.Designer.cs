@@ -58,7 +58,7 @@ namespace Presentation
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(765, 215);
+            this.pictureBox.Location = new System.Drawing.Point(297, 164);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(390, 650);
             this.pictureBox.TabIndex = 1;
@@ -68,9 +68,9 @@ namespace Presentation
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(117, 78);
+            this.pictureBox1.Location = new System.Drawing.Point(849, 89);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(705, 397);
+            this.pictureBox1.Size = new System.Drawing.Size(787, 900);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 

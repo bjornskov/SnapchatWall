@@ -70,10 +70,21 @@ namespace SnapchatBot {
         #endregion
 
         public static bool IsSnapStillOpen() {
-            return !(Utilities.GetColorStringFromPixel(
-                    Config.GetIsStillInSnapLeftEdgeDistance(),
-                    Config.GetIsStillInSnapTopEdgeDistance())
-                .Equals(Config.GetReadSnapColor()));
+            if(!Utilities.GetColorFromPixel(Config.GetIsStillInSnapLeftEdgeDistance(),
+                    Config.GetIsStillInSnapTopEdgeDistance()).Equals(Config.GetReadSnapColor())) {
+                return false;
+
+            } else if(!Utilities.GetColorFromPixel(Config.GetIsStillInSnap1LeftEdgeDistance(), Config.GetIsStillInSnap1TopEdgeDistance()).Equals(Config.GetIsStillInSnap1Color()))
+            {
+                return false;
+
+            } else if(Utilities.GetColorFromPixel(Config.GetIsStillInSnap2LeftEdgeDistance(), Config.GetIsStillInSnap2TopEdgeDistance()).Equals(Config.GetIsStillInSnap2Color()))
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
         }
 
         public static void MakeScreenshot() {
