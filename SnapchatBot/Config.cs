@@ -182,8 +182,8 @@ namespace SnapchatBot {
             Config.ConfigManagerApi.Set("chats_positionY.8", 534);
             Config.ConfigManagerApi.Set("chats_positionY.9", 586);
 
-            Config.ConfigManagerApi.Set("is_in_snap_left_edge_distance", 377);
-            Config.ConfigManagerApi.Set("is_in_snap_top_edge_distance", 115);
+            Config.ConfigManagerApi.Set("is_in_snap_left_edge_distance", 326);
+            Config.ConfigManagerApi.Set("is_in_snap_top_edge_distance", 114);
 
             Config.ConfigManagerApi.Set("is_in_snap_1_left_edge_distance", 216);
             Config.ConfigManagerApi.Set("is_in_snap_1_top_edge_distance", 71);
