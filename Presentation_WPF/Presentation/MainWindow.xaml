@@ -1,0 +1,15 @@
+﻿<Window x:Class="Presentation.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MainWindow" Height="1023" Width="2133"
+    WindowStyle="None" ResizeMode="NoResize"  
+    WindowStartupLocation="CenterScreen" WindowState="Maximized">
+
+    <Grid Background="Black" Width="2133" Height="1023" MinWidth="2133" MinHeight="1024">
+        <Image Source="photo_2018-03-05_10-28-06.jpg" Margin="1316,284,343,271"/>
+        <Button Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="102" Click="btn_click" Background="Black" BorderBrush="Black"/>
+        <Image Name="imageBox" HorizontalAlignment="Center" Width="570" Margin="435,35,1128,39"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1417,182,0,0" TextWrapping="Wrap" Text="Snap uns auf" VerticalAlignment="Top" FontSize="48" Foreground="Yellow"/>
+
+    </Grid>
+</Window>
