@@ -28,15 +28,22 @@ namespace ContentFilter
         {
             if (currentPicture != null)
             {
-                timer.Stop();
-                pictureBox.Image.Dispose();
-                pictureBox.Image = null;
+                try
+                {
+                    timer.Stop();
+                    pictureBox.Image.Dispose();
+                    pictureBox.Image = null;
 
-                DateTime foo = DateTime.Now;
-                string destFile = System.IO.Path.Combine(Form1.filteredUnaccptedSnaps, ((DateTimeOffset)foo).ToUnixTimeSeconds() + ".png");
-                File.Copy(currentPicture, destFile, true);
-                File.Delete(currentPicture);
-                timer.Start();
+                    DateTime foo = DateTime.Now;
+                    string destFile = System.IO.Path.Combine(Form1.filteredUnaccptedSnaps, ((DateTimeOffset)foo).ToUnixTimeSeconds() + ".png");
+                    File.Copy(currentPicture, destFile, true);
+                    File.Delete(currentPicture);
+                    timer.Start();
+                } catch
+                {
+                    timer.Stop();
+                    timer.Start();
+                }
             }
         }
 
@@ -49,15 +56,22 @@ namespace ContentFilter
         {
             if (currentPicture != null)
             {
-                timer.Stop();
-                pictureBox.Image.Dispose();
-                pictureBox.Image = null;
+                try
+                {
+                    timer.Stop();
+                    pictureBox.Image.Dispose();
+                    pictureBox.Image = null;
 
-                DateTime foo = DateTime.Now;
-                string destFile = System.IO.Path.Combine(Form1.filteredAcceptedSnaps, ((DateTimeOffset)foo).ToUnixTimeSeconds() + ".png");
-                File.Copy(currentPicture, destFile, true);
-                File.Delete(currentPicture);
-                timer.Start();
+                    DateTime foo = DateTime.Now;
+                    string destFile = System.IO.Path.Combine(Form1.filteredAcceptedSnaps, ((DateTimeOffset)foo).ToUnixTimeSeconds() + ".png");
+                    File.Copy(currentPicture, destFile, true);
+                    File.Delete(currentPicture);
+                    timer.Start();
+                } catch
+                {
+                    timer.Stop();
+                    timer.Start();
+                }
             }
         }
 
@@ -73,15 +87,18 @@ namespace ContentFilter
         {
             if(pictureBox.Image == null)
             {
-                DirectoryInfo d = new DirectoryInfo(Form1.unfilteredSnaps);//Assuming Test is your Folder
-                FileInfo[] Files = d.GetFiles("*.png"); //Getting Text files
-                foreach (FileInfo file in Files)
+                try
                 {
-                    Form1.currentPicture = Form1.unfilteredSnaps + file.Name;
+                    DirectoryInfo d = new DirectoryInfo(Form1.unfilteredSnaps);//Assuming Test is your Folder
+                    FileInfo[] Files = d.GetFiles("*.png"); //Getting Text files
+                    foreach (FileInfo file in Files)
+                    {
+                        Form1.currentPicture = Form1.unfilteredSnaps + file.Name;
 
-                    pictureBox.Image = GetCopyImage(Form1.currentPicture);
-                    break;
-                }
+                        pictureBox.Image = GetCopyImage(Form1.currentPicture);
+                        break;
+                    }
+                } catch { }
             }
         }
 
