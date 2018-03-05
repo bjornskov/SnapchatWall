@@ -37,38 +37,41 @@ namespace Presentation
 
         private void Timer_Tick(object Sender, EventArgs e)
         {
-            DirectoryInfo d = new DirectoryInfo(Presentation.notSeenfilteredSnaps);
-            FileInfo[] Files = d.GetFiles("*.png");
-            foreach (FileInfo file in Files)
+            try
             {
-                string currentPicture_l = Presentation.notSeenfilteredSnaps + file.Name;
+                DirectoryInfo d = new DirectoryInfo(Presentation.notSeenfilteredSnaps);
+                FileInfo[] Files = d.GetFiles("*.png");
+                foreach (FileInfo file in Files)
+                {
+                    string currentPicture_l = Presentation.notSeenfilteredSnaps + file.Name;
 
-                pictureBox.Image = GetCopyImage(currentPicture_l);
+                    pictureBox.Image = GetCopyImage(currentPicture_l);
 
-                DateTime foo = DateTime.Now;
-                string destFile = Path.Combine(Presentation.alreadySeenfilteredSnaps, ((DateTimeOffset)foo).ToUnixTimeSeconds() + ".png");
-                File.Copy(currentPicture_l, destFile, true);
-                File.Delete(currentPicture_l);
+                    DateTime foo = DateTime.Now;
+                    string destFile = Path.Combine(Presentation.alreadySeenfilteredSnaps, ((DateTimeOffset)foo).ToUnixTimeSeconds() + ".png");
+                    File.Copy(currentPicture_l, destFile, true);
+                    File.Delete(currentPicture_l);
 
-                return;
-            }
+                    return;
+                }
 
-            d = new DirectoryInfo(Presentation.alreadySeenfilteredSnaps);
-            Files = d.GetFiles("*.png");
-            List<FileInfo> fileInfos = new List<FileInfo>();
-            foreach (FileInfo file in Files)
-            {
-                fileInfos.Add(file);
-            }
+                d = new DirectoryInfo(Presentation.alreadySeenfilteredSnaps);
+                Files = d.GetFiles("*.png");
+                List<FileInfo> fileInfos = new List<FileInfo>();
+                foreach (FileInfo file in Files)
+                {
+                    fileInfos.Add(file);
+                }
 
-            if (fileInfos.Count > 0)
-            {
-                int rand = new Random().Next(0, fileInfos.Count);
+                if (fileInfos.Count > 0)
+                {
+                    int rand = new Random().Next(0, fileInfos.Count);
 
-                string currentPicture = Presentation.alreadySeenfilteredSnaps + fileInfos[rand].Name;
+                    string currentPicture = Presentation.alreadySeenfilteredSnaps + fileInfos[rand].Name;
 
-                pictureBox.Image = GetCopyImage(currentPicture);
-            }
+                    pictureBox.Image = GetCopyImage(currentPicture);
+                }
+            } catch { }
         }
 
         private Image GetCopyImage(string path)
