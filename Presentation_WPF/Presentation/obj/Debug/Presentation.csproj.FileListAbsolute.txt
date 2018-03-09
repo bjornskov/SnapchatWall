@@ -1,0 +1,13 @@
+C:\Users\virtual\Desktop\Presentation\Presentation\bin\Debug\Presentation.exe.config
+C:\Users\virtual\Desktop\Presentation\Presentation\bin\Debug\Presentation.exe
+C:\Users\virtual\Desktop\Presentation\Presentation\bin\Debug\Presentation.pdb
+C:\Users\virtual\Desktop\Presentation\Presentation\obj\Debug\Presentation.csprojResolveAssemblyReference.cache
+C:\Users\virtual\Desktop\Presentation\Presentation\obj\Debug\MainWindow.g.cs
+C:\Users\virtual\Desktop\Presentation\Presentation\obj\Debug\App.g.cs
+C:\Users\virtual\Desktop\Presentation\Presentation\obj\Debug\Presentation_MarkupCompile.cache
+C:\Users\virtual\Desktop\Presentation\Presentation\obj\Debug\MainWindow.baml
+C:\Users\virtual\Desktop\Presentation\Presentation\obj\Debug\Presentation.g.resources
+C:\Users\virtual\Desktop\Presentation\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+C:\Users\virtual\Desktop\Presentation\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+C:\Users\virtual\Desktop\Presentation\Presentation\obj\Debug\Presentation.exe
+C:\Users\virtual\Desktop\Presentation\Presentation\obj\Debug\Presentation.pdb
