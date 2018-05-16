@@ -1,4 +1,6 @@
-# SnapchatWall
+# DISCONTINUED
+
+## SnapchatWall
 SnapchatWall is a collection of independent programs that collectively create a system that stores snaps, 
 checks them and then displays the images on a screen or canvas.
 
